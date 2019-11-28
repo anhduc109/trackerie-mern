@@ -43,9 +43,9 @@ export default class ExerciseList extends Component {
   }
 
   componentDidMount() {
-    console.log(process.env.baseURL + "/exercises/");
+    console.log(process.env.PORT);
     axios
-      .get(process.env.baseURL + "/exercises/")
+      .get("https://mern-trackerie.herokuapp.com/" + "/exercises/")
       .then(res => {
         let outdoorCount = res.data.filter(item => item.isOutdoor === true)
           .length;
@@ -73,7 +73,7 @@ export default class ExerciseList extends Component {
     var answer = window.confirm("Are you sure want to delete this item?");
     if (answer) {
       axios
-        .delete(process.env.baseURL + "/exercises/" + id)
+        .delete("https://mern-trackerie.herokuapp.com/" + "/exercises/" + id)
         .then(res => console.log(res.data));
 
       this.setState({
