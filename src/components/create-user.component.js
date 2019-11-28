@@ -58,10 +58,10 @@ export default class CreateUser extends Component {
               onChange={this.onChangeUsername}
             />
           </div>
-          {this.state.successmess != "" && (
+          {this.state.successmess !== "" && (
             <label className="success-mess">{this.state.successmess}</label>
           )}
-          {this.state.errormess != "" && (
+          {this.state.errormess !== "" && (
             <label className="error-mess">{this.state.errormess}</label>
           )}
           <div className="form-group">

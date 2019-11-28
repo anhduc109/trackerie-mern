@@ -12,7 +12,7 @@ const Exercise = props => (
   <tr>
     <td>{props.exercise.username}</td>
     <td>{props.exercise.description}</td>
-    <td>{props.exercise.isOutdoor == true ? "Outdoor" : "Indoor"}</td>
+    <td>{props.exercise.isOutdoor === true ? "Outdoor" : "Indoor"}</td>
     <td>{props.exercise.duration} mins</td>
     <td>{props.exercise.date.substring(0, 10)}</td>
     <td>
@@ -46,7 +46,7 @@ export default class ExerciseList extends Component {
     axios
       .get("http://localhost:5000/exercises/")
       .then(res => {
-        let outdoorCount = res.data.filter(item => item.isOutdoor == true)
+        let outdoorCount = res.data.filter(item => item.isOutdoor === true)
           .length;
         this.setState({
           exercises: res.data,
