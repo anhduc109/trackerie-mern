@@ -44,7 +44,7 @@ export default class ExerciseList extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/exercises/")
+      .get(process.env.baseURL + "/exercises/")
       .then(res => {
         let outdoorCount = res.data.filter(item => item.isOutdoor === true)
           .length;
@@ -59,7 +59,7 @@ export default class ExerciseList extends Component {
       });
 
     axios
-      .get("http://localhost:5000/users/")
+      .get(process.env.baseURL + "/users/")
       .then(res => {
         this.setState({ usernumber: res.data.length });
       })
@@ -72,7 +72,7 @@ export default class ExerciseList extends Component {
     var answer = window.confirm("Are you sure want to delete this item?");
     if (answer) {
       axios
-        .delete("http://localhost:5000/exercises/" + id)
+        .delete(process.env.baseURL + "/exercises/" + id)
         .then(res => console.log(res.data));
 
       this.setState({
