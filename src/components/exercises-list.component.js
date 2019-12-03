@@ -45,7 +45,7 @@ export default class ExerciseList extends Component {
   componentDidMount() {
     console.log(process.env.PORT);
     axios
-      .get("/exercises/")
+      .get("https://mern-trackerie.herokuapp.com:443/exercises/")
       .then(res => {
         let outdoorCount = res.data.filter(item => item.isOutdoor === true)
           .length;
@@ -60,7 +60,7 @@ export default class ExerciseList extends Component {
       });
 
     axios
-      .get("/users/")
+      .get("https://mern-trackerie.herokuapp.com:443/users/")
       .then(res => {
         this.setState({ usernumber: res.data.length });
       })
@@ -72,7 +72,9 @@ export default class ExerciseList extends Component {
   deleteExercise(id) {
     var answer = window.confirm("Are you sure want to delete this item?");
     if (answer) {
-      axios.delete("/exercises/" + id).then(res => console.log(res.data));
+      axios
+        .delete("https://mern-trackerie.herokuapp.com:443/exercises/" + id)
+        .then(res => console.log(res.data));
 
       this.setState({
         exercises: this.state.exercises.filter(el => el._id !== id)
