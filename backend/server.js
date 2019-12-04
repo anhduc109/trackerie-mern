@@ -20,8 +20,14 @@ connection.once("open", () => {
 const exercisesRouter = require("./routes/exercises");
 const usersRouter = require("./routes/users");
 
-app.use("/api/exercises", exercisesRouter);
-app.use("/api/users", usersRouter);
+app.use(express.static(path.join(__dirname, "build")));
+
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
+app.use("/exercises", exercisesRouter);
+app.use("/users", usersRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
