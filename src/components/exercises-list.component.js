@@ -49,6 +49,8 @@ export default class ExerciseList extends Component {
       .then(res => {
         let outdoorCount = res.data.filter(item => item.isOutdoor === true)
           .length;
+        console.log(res.data);
+        console.log(res.data.length);
         this.setState({
           exercises: res.data,
           exercisenumber: res.data.length,
