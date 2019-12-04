@@ -64,6 +64,7 @@ export default class ExerciseList extends Component {
     axios
       .get("/users/")
       .then(res => {
+        console.log("user " + res.data);
         this.setState({ usernumber: res.data.length });
       })
       .catch(err => {
