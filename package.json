@@ -2,7 +2,7 @@
   "name": "mern-exercise-tracker",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://anhduc109.github.io/MERN-Trackerie/",
+  "homepage": "https://trackerie-mern.herokuapp.com/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
