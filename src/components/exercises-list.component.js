@@ -47,10 +47,10 @@ export default class ExerciseList extends Component {
     axios
       .get("/exercises/")
       .then(res => {
-        let outdoorCount = res.data.filter(item => item.isOutdoor === true)
-          .length;
         console.log(res.data);
         console.log(res.data.length);
+        let outdoorCount = res.data.filter(item => item.isOutdoor === true)
+          .length;
         this.setState({
           exercises: res.data,
           exercisenumber: res.data.length,
