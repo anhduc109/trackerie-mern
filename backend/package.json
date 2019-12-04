@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "react-scripts build",
     "devstart": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
