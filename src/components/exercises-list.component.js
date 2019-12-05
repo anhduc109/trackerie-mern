@@ -45,7 +45,7 @@ export default class ExerciseList extends Component {
   componentDidMount() {
     console.log(process.env.PORT);
     axios
-      .get("/exercises/")
+      .get("/exercises")
       .then(res => {
         console.log(res.data);
         console.log(res.data.length);
@@ -62,7 +62,7 @@ export default class ExerciseList extends Component {
       });
 
     axios
-      .get("/users/")
+      .get("/users")
       .then(res => {
         console.log("user " + res.data);
         this.setState({ usernumber: res.data.length });
