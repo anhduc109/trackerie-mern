@@ -25,6 +25,7 @@
     "server": "cd backend && nodemon server.js",
     "client": "npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "react-scripts build",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install && npm run build"
   },
   "eslintConfig": {
