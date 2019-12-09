@@ -22,9 +22,9 @@
   "scripts": {
     "client-install": "npm install",
     "start": "cd backend && node server.js",
-    "server": "cd backend && node server.js",
+    "server": "cd backend && nodemon server.js",
     "client": "npm start",
-    "build": "react-scripts build",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install && npm run build"
   },
   "eslintConfig": {
