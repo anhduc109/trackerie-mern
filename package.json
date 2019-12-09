@@ -26,7 +26,7 @@
     "client": "npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "react-scripts build",
-    "heroku-postbuild": "cd backend && NPM_CONFIG_PRODUCTION=false && npm install && npm run build"
+    "heroku-postbuild": "cd backend && npm install && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
