@@ -22,7 +22,6 @@
   "scripts": {
     "client-install": "npm install",
     "start": "cd backend && node server.js",
-    "server": "cd backend && node server.js",
     "client": "npm start",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install && npm run build"
   },
