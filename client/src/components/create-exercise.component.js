@@ -3,7 +3,7 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default class EditExercise extends Component {
+export default class CreateExercise extends Component {
   constructor(props) {
     super(props);
 
@@ -25,25 +25,11 @@ export default class EditExercise extends Component {
   }
 
   componentDidMount() {
-    axios
-      .get("http://localhost:5000/exercises/" + this.props.match.params.id)
-      .then(res => {
-        this.setState({
-          username: res.data.username,
-          description: res.data.description,
-          isOutdoor: res.data.isOutdoor,
-          duration: res.data.duration,
-          date: new Date(res.data.date)
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-
-    axios.get("http://localhost:5000/users/").then(response => {
+    axios.get("/users/").then(response => {
       if (response.data.length > 0) {
         this.setState({
-          users: response.data.map(user => user.username)
+          users: response.data.map(user => user.username),
+          username: response.data[0].username
         });
       }
     });
@@ -61,15 +47,15 @@ export default class EditExercise extends Component {
     });
   }
 
-  onChangeIsOutdoor(e) {
-    this.setState({
-      isOutdoor: e.target.value
-    });
-  }
-
   onChangeDuration(e) {
     this.setState({
       duration: e.target.value
+    });
+  }
+
+  onChangeIsOutdoor(e) {
+    this.setState({
+      isOutdoor: e.target.value
     });
   }
 
@@ -92,12 +78,7 @@ export default class EditExercise extends Component {
 
     console.log(exercise);
 
-    axios
-      .post(
-        "http://localhost:5000/exercises/update/" + this.props.match.params.id,
-        exercise
-      )
-      .then(res => console.log(res.data));
+    axios.post("/exercises/add", exercise).then(res => console.log(res.data));
 
     window.location = "/";
   }
@@ -105,7 +86,7 @@ export default class EditExercise extends Component {
   render() {
     return (
       <div>
-        <h4>Edit Exercise</h4>
+        <h4>Create New Exercise</h4>
         <br />
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
@@ -162,9 +143,9 @@ export default class EditExercise extends Component {
             <label>Date: </label>
             <div>
               <DatePicker
+                className="form-control"
                 selected={this.state.date}
                 onChange={this.onChangeDate}
-                className="form-control"
               />
             </div>
           </div>
@@ -172,7 +153,7 @@ export default class EditExercise extends Component {
           <div className="form-group">
             <input
               type="submit"
-              value="Edit Exercise Log"
+              value="Create Exercise Log"
               className="btn btn-success"
             />
           </div>
