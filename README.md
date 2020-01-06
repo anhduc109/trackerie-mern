@@ -7,5 +7,6 @@ A personal MERN Stack web application for tracking exercises with CRUD operation
 ### Made with:
 
 - MERN Stack (MongoDB Atlas, Express.js, React.js, Node.js)
+- RESTful API
 - react-router-dom
 - React Bootstrap framework
